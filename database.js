@@ -9,6 +9,7 @@ export default{
         stars: 6.1,
         reviews: 21,
         color: 'Gray', 
+        countInStock:6
       },
       {
         _id: '2',
@@ -19,6 +20,7 @@ export default{
         stars: 7.0,
         reviews: 35,
         color: 'Black', 
+        countInStock:7
         
       },
       {
@@ -30,6 +32,7 @@ export default{
         stars: 2.1,
         reviews: 12,
         color: 'Pink', 
+        countInStock:6
       }, 
       {
         _id: '4',
@@ -39,7 +42,8 @@ export default{
         price: 48.25 ,
         stars: 6.8,
         reviews: 23,
-        color: 'White', 
+        color: 'White',
+        countInStock:12 
       },
       {
         _id: '5',
@@ -50,6 +54,7 @@ export default{
         stars: 7.1,
         reviews: 15,
         color: 'Gray', 
+        countInStock:15
       },
       {
         _id: '6',
@@ -60,6 +65,7 @@ export default{
         stars: 4.1,
         reviews: 22,
         color: 'Black', 
+        countInStock:6
       },
       {
         _id: '7',
@@ -70,6 +76,7 @@ export default{
         stars: 5.5,
         reviews: 13,
         color: 'White', 
+        countInStock:6
       },
       {
         _id: '8',
@@ -80,6 +87,7 @@ export default{
         stars: 9.1,
         reviews: 18,
         color: 'Black', 
+        countInStock:6
       }
     ]
   }
