@@ -9,7 +9,7 @@ export default{
         stars: 6.1,
         reviews: 21,
         color: 'Gray', 
-        countInStock:6
+        countInStock:0
       },
       {
         _id: '2',
