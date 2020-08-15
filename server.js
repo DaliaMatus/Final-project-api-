@@ -6,6 +6,7 @@ import bodyParser from 'body-parser';
 import data from './database';
 import config from './config';
 import userRoute from './routes/userRoute';
+import productRoute from './routes/productRoute';
 
 dotenv.config();
 
@@ -19,7 +20,10 @@ const app=express();
 
 app.use(bodyParser.json());
 app.use('/api/users', userRoute);
-app.get('/api/products/:id',(req, res)=>{ 
+app.use('/api/products', productRoute);
+
+//Static API
+/*app.get('/api/products/:id',(req, res)=>{ 
   const productId =req.params.id;
   const product = data.products.find(x=>x._id ===productId);
   if (product)
@@ -30,6 +34,6 @@ app.get('/api/products/:id',(req, res)=>{
   
 app.get('/api/products',(req, res)=>{ 
   res.send(data.products);            
-  }); 
+  });*/
 
 app.listen(8000, ()=> {console.log("Server sarted at http://localhost:8000")});

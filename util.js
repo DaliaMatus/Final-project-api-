@@ -20,15 +20,16 @@ const isAuth=(req,res,next)=>{
       if(err){
         return res.status(401).send({message: 'Invalid Token.'});
       }
-      req.user = token;
+      req.user = decode;
       next();
       return
     });
+  }else {
+    return res.status(401).send({message: 'Token is not supplied.'});
   }
-  return res.status(401).send({message: 'Token is not supplied.'})
 }
 
-const isAdmin = (req, res, next) =>{
+const isAdmin=(req, res, next) =>{
   if(req.user && req.user.isAdmin){
     return next();
   }
