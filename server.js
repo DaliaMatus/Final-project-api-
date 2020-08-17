@@ -20,10 +20,10 @@ const app=express();
 
 app.use(bodyParser.json());
 app.use('/api/users', userRoute);
-app.use('/api/products', productRoute);
+//app.use('/api/products', productRoute);
 
 //Static API
-/*app.get('/api/products/:id',(req, res)=>{ 
+app.get('/api/products/:id',(req, res)=>{ 
   const productId =req.params.id;
   const product = data.products.find(x=>x._id ===productId);
   if (product)
@@ -34,6 +34,6 @@ app.use('/api/products', productRoute);
   
 app.get('/api/products',(req, res)=>{ 
   res.send(data.products);            
-  });*/
+  });
 
 app.listen(8000, ()=> {console.log("Server sarted at http://localhost:8000")});

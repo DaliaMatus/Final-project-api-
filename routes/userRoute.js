@@ -42,7 +42,7 @@ router.post('/register', async (req, res) => {
       res.status(401).send({ msg: 'Invalid User Data.' });
     }
   
-  })
+  });
   
 router.get('/createadmin', async(req, res) =>{
 try{
