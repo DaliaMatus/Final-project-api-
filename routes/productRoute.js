@@ -38,7 +38,7 @@ router.put("/:id", isAuth, isAdmin, async(req, res)=>{
     return res.status(500).send({message: 'Error in Updating Product'});
 });
 
-router.delete("/:id", isAuth, isAdmin,async (req,res)=>{
+/*router.delete("/:id", isAuth, isAdmin,async (req,res)=>{
     const deletedProduct = await Product.findById(req.params.id);
     if(deletedProduct) {
       await deletedProduct.remove();
@@ -46,9 +46,9 @@ router.delete("/:id", isAuth, isAdmin,async (req,res)=>{
     }else{
       res.send('Error in Deletion');
     }
-});
+});*/
 
-router.post("/", isAuth, isAdmin, async (req, res) => {
+/*router.post("/", isAuth, isAdmin, async (req, res) => {
     const product=new Product({
       name:req.body.name,
       price:req.body.price,
@@ -65,7 +65,7 @@ router.post("/", isAuth, isAdmin, async (req, res) => {
     return res.status(201).send({ message:'New Product Created', data:newProduct});
   }
   return res.status(500).send({message:'Error in Creating Product'});
-})
+})*/
 
 export default router;
 

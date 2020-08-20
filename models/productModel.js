@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+/*import mongoose from 'mongoose';
 
 const productSchema = new mongoose.Schema({
     name: {type: String, required:true},
@@ -14,4 +14,23 @@ const productSchema = new mongoose.Schema({
 
 const productModel= mongoose.model("Product", productSchema);
 
-export default productModel;
+export default productModel;*/
+
+'use strict'
+
+const mongoose =require('mongoose')
+const Schema = mongoose.Schema
+
+const ProductSchema = Schema({
+    name:String,
+    image:String,
+    brand:String,
+    price:{type:Number, default:0},
+    color:{type:String, enum:['Gray', 'Black', 'White', 'Pink']},
+    countInStock:{type:Number, default:0},
+    description:String,
+    stars:{type:Number, default:0},
+    reviews:{type:Number, default:0}
+}) 
+
+module.exports=mongoose.model('Product', ProductSchema)

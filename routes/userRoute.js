@@ -27,7 +27,8 @@ router.post('/register', async (req, res) => {
     const user = new User({
       name: req.body.name,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      isAdmin: req.body.isAdmin
     });
     const newUser = await user.save();
     if (newUser) {
@@ -48,8 +49,8 @@ router.get('/createadmin', async(req, res) =>{
 try{
     const user = new User({
         name:'Dalia',
-        email:'daliamatus@gmail.com',
-        password:'1234',
+        email:'dalia123@gmail.com',
+        password:'123',
         isAdmin:true
     });
     const newUser = await user.save();
