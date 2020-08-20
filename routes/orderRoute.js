@@ -48,4 +48,9 @@ router.put("/:id/pay", isAuth, async (req, res) => {
   }
 });
 
+router.get("/mine", isAuth, async (req, res) => {
+  const orders = await Order.find({ user: req.user._id });
+  res.send(orders);
+})
+
 export default router; 
