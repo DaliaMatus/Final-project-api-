@@ -6,7 +6,14 @@ import {isAuth, isAdmin} from '../util';
 const router=express.Router();
 
 router.get("/", async (req,res) =>{
-    const products=await Product.find({});
+  const color = req.query.color ? { color: req.query.color } : {};
+  const searchKeyword = req.query.searchKeyword ? {
+    name: {
+      $regex: req.query.searchKeyword,
+      $options: 'i'
+    }
+  } : {};
+  const products = await Product.find({ ...color, ...searchKeyword });
     res.send(products);
 });
 
