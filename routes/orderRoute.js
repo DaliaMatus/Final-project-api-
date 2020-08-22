@@ -1,8 +1,13 @@
 import express from 'express';
 import Order from '../models/orderModel';
-import {isAuth} from '../util';
+import {isAuth, isAdmin} from '../util';
 
 const router = express.Router();
+
+router.get("/", isAuth, async (req, res) => {
+  const orders = await Order.find({}).populate('user');
+  res.send(orders);
+});
 
 router.get("/:id", isAuth, async (req, res) => {
   const order = await Order.findOne({ _id: req.params.id });
@@ -12,6 +17,11 @@ router.get("/:id", isAuth, async (req, res) => {
     res.status(404).send("Order Not Found.")
   }
 });
+
+router.get("/mine", isAuth, async (req, res) => {
+  const orders = await Order.find({ user: req.user._id });
+  res.send(orders);
+})
 
 router.post("/", isAuth, async (req, res) => {
   const newOrder = new Order({
@@ -48,9 +58,14 @@ router.put("/:id/pay", isAuth, async (req, res) => {
   }
 });
 
-router.get("/mine", isAuth, async (req, res) => {
-  const orders = await Order.find({ user: req.user._id });
-  res.send(orders);
-})
+router.delete("/:id", isAuth, isAdmin, async (req, res) => {
+  const order = await Order.findOne({ _id: req.params.id });
+  if (order) {
+    const deletedOrder = await order.remove();
+    res.send(deletedOrder);
+  } else {
+    res.status(404).send("Order Not Found.")
+  }
+});
 
 export default router; 

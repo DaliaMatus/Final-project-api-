@@ -41,8 +41,8 @@ app.get("/api/config/paypal", (req, res) => {
   
 app.get('/api/products',(req, res)=>{ 
   res.send(data.products);            
-  });*/
-
+  });
+*/
 app.post('/api/products', (req,res) =>{
   console.log('POST /api/product')
   console.log(req.body)
