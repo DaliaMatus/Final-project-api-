@@ -3,11 +3,11 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 
-import data from './database';
+
 import config from './config';
 import userRoute from './routes/userRoute';
 import productRoute from './routes/productRoute';
-import orderRoute from './routes/orderRoute';
+
 
 
 import Product from './models/productModel';
@@ -24,25 +24,8 @@ const app=express();
 app.use(bodyParser.json());
 app.use('/api/users', userRoute);
 app.use('/api/products', productRoute);
-app.use("/api/orders", orderRoute);
-app.get("/api/config/paypal", (req, res) => {
-  res.send(config.PAYPAL_CLIENT_ID);
-})
 
-//Static API
-/*app.get('/api/products/:id',(req, res)=>{ 
-  const productId =req.params.id;
-  const product = data.products.find(x=>x._id ===productId);
-  if (product)
-    res.send(product);
-  else
-    res.status(404).send({message:"Product Not Found."});            
-  }); 
-  
-app.get('/api/products',(req, res)=>{ 
-  res.send(data.products);            
-  });
-*/
+
 app.post('/api/products', (req,res) =>{
   console.log('POST /api/product')
   console.log(req.body)
@@ -66,25 +49,6 @@ app.post('/api/products', (req,res) =>{
 
 })
 
-/*app.get('/api/products', (req,res)=>{
-  Product.find({}, (err, products)=>{
-    if(err) return res.status(500).send({message:'Error while making the request'});
-    if(!products) return res.status(404).send({message:'No products exist'});
-    
-    res.send(200, {products})
-  })
-})
-
-app.get('/api/products/:id', (req, res)=>{
-  let id=req.params.id
-
-  Product.findById(id, (err, product)=>{
-    if(err)return res.status(500).send({message:'Error while making the request'})
-    if(!products) return res.status(404).send({message:'No product exist'});
-    
-    res.send(200, {products})
-  })
-})*/
 
 app.delete('/api/products/:id', (req,res)=>{
   let id=req.params.id
@@ -100,4 +64,4 @@ app.delete('/api/products/:id', (req,res)=>{
   })
 })
 
-app.listen(8000, ()=> {console.log("Server sarted at http://localhost:8000")});
+app.listen(config.PORT, ()=> {console.log("Server sarted at http://localhost:8000");});
