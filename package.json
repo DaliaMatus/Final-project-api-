@@ -4,8 +4,13 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon --watch server.js --exec babel-node server.js"
-  },
+    "dev": "react-scripts start",
+    "start": "serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env = jsdom ",
+    "eject " :"react-scripts eject ",
+    " heroku-postbuild ":" npm run build "
+    },
   "author": "dalia_matus <daliamatus@gmail.com> (git remote add origin https://github.com/DaliaMatus/Final-project-api-.git)",
   "license": "MIT",
   "dependencies": {
@@ -13,7 +18,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.28"
+    "mongoose": "^5.9.28",
+    "serve": "^11.3.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
