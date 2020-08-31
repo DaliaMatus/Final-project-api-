@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "type":"module",
   "scripts": {
+    "build":"babel server.js -d dist",
     "start": "nodemon --watch server.js --exec babel-node server.js"
   },
   "author": "dalia_matus <daliamatus@gmail.com> (git remote add origin https://github.com/DaliaMatus/Final-project-api-.git)",
