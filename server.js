@@ -64,4 +64,4 @@ app.delete('/api/products/:id', (req,res)=>{
   })
 })
 
-app.listen(config.PORT, ()=> {console.log("Server sarted at http://localhost:8000");});
+app.listen(process.env.PORT || 8000, function() {console.log("Server sarted at http://localhost:8000");});
