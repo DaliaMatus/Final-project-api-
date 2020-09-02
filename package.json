@@ -4,8 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build":"babel server.js -d dist",
-    "start": "nodemon --watch server.js --exec babel-node server.js"
+    "build": "babel server.js -d dist",
+    "start": "nodemon --watch server.js --exec babel-node server.js",
+    "heroku-postbuild": "echo Skip build on Heroku"
   },
   "author": "dalia_matus <daliamatus@gmail.com> (git remote add origin https://github.com/DaliaMatus/Final-project-api-.git)",
   "license": "MIT",
@@ -23,5 +24,6 @@
     "@babel/node": "^7.10.5",
     "@babel/preset-env": "^7.11.0",
     "nodemon": "^2.0.4"
-  }
+  },
+  "heroku-run-build-script": true
 }
